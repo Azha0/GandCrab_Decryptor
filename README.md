@@ -15,15 +15,15 @@ GandCrab V5.2（1）和GandCrab V5.2（2）的图标如下图：
 
 ![image-20191204100427506](https://cdn.jsdelivr.net/gh/Azha0/ImgHosting@1.1/ImgFromBlog/01_样本分析报告/09_GandCrabV5.2解密工具/image-20191204100427506.png)
 
-我所发现的两个GandCrab V5.2，作者的加密RSA私钥一样，加密手法一样，大体上没有什么太大的区别，==但在一些行为上有些许的差别，这些差别也影响了修复的方式==。
+我所发现的两个GandCrab V5.2，作者的加密RSA私钥一样，加密手法一样，大体上没有什么太大的区别，但在一些行为上有些许的差别，这些差别也影响了修复的方式。
 
 ## GandCrab v5.2（1）与GandCrab V5.2(2)的差别
 
 **注册表差异**
 
-GandCrab V5.2(2）将随机生成的加密后缀保存到注册表：`HKLM(HKCU)\SOFTWARE\\ex_data\\data`中的`ext`中，并将加密的==密钥信息==（经过加密的用于加密本地RSA私钥的Salsa20的Key和IV，以及加密后的本地RSA私钥）保存在注册表：`HkLM(HKCU)\SOFTWARE\\keys_data\\data`中的`private`。
+GandCrab V5.2(2）将随机生成的加密后缀保存到注册表：`HKLM(HKCU)\SOFTWARE\\ex_data\\data`中的`ext`中，并将加密的密钥信息（经过加密的用于加密本地RSA私钥的Salsa20的Key和IV，以及加密后的本地RSA私钥）保存在注册表：`HkLM(HKCU)\SOFTWARE\\keys_data\\data`中的`private`。
 
-而GandCrab V5.2(1)==并没有将加密相关的信息写入注册表==，这将严重影响修复工具获取密钥信息（经过加密的用于加密本地RSA私钥的Salsa20的Key和IV，以及加密后的本地RSA私钥）的方法，导致==无法直接读取注册表获取密钥信息。==
+而GandCrab V5.2(1)并没有将加密相关的信息写入注册表，这将严重影响修复工具获取密钥信息（经过加密的用于加密本地RSA私钥的Salsa20的Key和IV，以及加密后的本地RSA私钥）的方法，导致无法直接读取注册表获取密钥信息。
 
 **勒索说明差异**
 
