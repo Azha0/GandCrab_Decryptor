@@ -1,4 +1,4 @@
-<center><font size = 7><b>GandCrab V5.2解密工具</b></font></center>
+# GandCrab V5.2解密工具
 
 # 目录
 
